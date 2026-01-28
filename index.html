@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kisan Dost - AI Farmer Dashboard</title>
+    <link rel="stylesheet" href="{accessible_ui.css"}>
+    <!-- PWA capable meta tags -->
+    <meta name="theme-color" content="#27ae60">
+</head>
+<body>
+
+    <div id="offline-indicator">⚠️ You are currently offline. Showing saved data.</div>
+
+    <div class="header">
+        <h1>🚜 Kisan Dost (Farmer's Friend)</h1>
+        <p>AI-Powered Agricultural Intelligence</p>
+        <div style="margin-top: 10px;">
+            <select id="lang-select" style="padding: 5px; border-radius: 5px;">
+                <option value="en-US">English</option>
+                <option value="hi-IN">हिन्दी (Hindi)</option>
+                <option value="te-IN">తెలుగు (Telugu)</option>
+                <option value="bn-IN">বাংলা (Bengali)</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="dashboard-container">
+        
+        <div class="grid">
+            <!-- Weather Section -->
+            <div id="weather-info">
+                <div class="card">
+                    <h2>🌡️ Weather & Risk</h2>
+                    <p>Loading weather data...</p>
+                </div>
+            </div>
+
+            <!-- AI Price Prediction Section -->
+            <div>
+                <div class="card">
+                    <h2>💰 Market Prediction</h2>
+                    <label>Select Crop:</label>
+                    <select id="crop-select" onchange="loadPricePrediction()" style="width: 100%; padding: 10px; margin: 10px 0;">
+                        <option value="Wheat">Wheat</option>
+                        <option value="Rice">Rice</option>
+                        <option value="Corn">Corn</option>
+                        <option value="Tomato">Tomato</option>
+                    </select>
+                    <div id="price-info"></div>
+                </div>
+            </div>
+
+            <!-- Crop Suggestion Section -->
+            <div>
+                <div class="card">
+                    <h2>🌱 Next Crop Suggestion</h2>
+                    <select id="soil-select" style="width: 48%; padding: 10px;">
+                        <option value="Loamy">Loamy Soil</option>
+                        <option value="Sandy">Sandy Soil</option>
+                        <option value="Clayey">Clayey Soil</option>
+                    </select>
+                    <select id="season-select" style="width: 48%; padding: 10px;">
+                        <option value="Winter">Winter</option>
+                        <option value="Summer">Summer</option>
+                        <option value="Monsoon">Monsoon</option>
+                    </select>
+                    <button class="btn-voice" style="width: 100%; margin-top: 10px;" onclick="loadSuggestions()">Get Suggestions</button>
+                    <div id="suggestion-info"></div>
+                </div>
+            </div>
+
+            <!-- Nearby Markets -->
+            <div id="market-info"></div>
+
+            <!-- Schemes -->
+            <div id="scheme-info"></div>
+        </div>
+    </div>
+
+    <!-- Navigation for Low Literacy (Icon based) -->
+    <div class="action-icons">
+        <a href="#" class="nav-item">🏠<br><small>Home</small></a>
+        <a href="#" onclick="SpeechEngine.speak('You are using the farmer dashboard. Select your crop to see the price forecast.')" class="nav-item">🙋‍♂️<br><small>Help</small></a>
+        <a href="#" class="nav-item">📞<br><small>Support</small></a>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/speech_engine.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/offline_store.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>

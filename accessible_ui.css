@@ -1,0 +1,115 @@
+:root {
+    --primary-green: #2ecc71;
+    --dark-green: #27ae60;
+    --warning-red: #e74c3c;
+    --card-bg: #ffffff;
+    --text-color: #2c3e50;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f1f8e9;
+    color: var(--text-color);
+    margin: 0;
+    padding-bottom: 50px;
+}
+
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    background: var(--dark-green);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 0 0 20px 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-left: 8px solid var(--primary-green);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card.alert {
+    border-left-color: var(--warning-red);
+    background-color: #fff5f5;
+}
+
+h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 0;
+}
+
+.icon-big {
+    font-size: 2rem;
+}
+
+.btn-voice {
+    background: var(--primary-green);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 10px 0;
+}
+
+.prediction-up { color: var(--dark-green); font-weight: bold; }
+.prediction-down { color: var(--warning-red); font-weight: bold; }
+
+.scheme-item {
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+}
+
+#offline-indicator {
+    background: #f39c12;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    display: none;
+}
+
+/* Accessible navigation for low literacy - Icon heavy */
+.action-icons {
+    display: flex;
+    justify-content: space-around;
+    background: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 15px 0;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-item {
+    text-align: center;
+    color: var(--dark-green);
+    text-decoration: none;
+    font-size: 1.2rem;
+}
