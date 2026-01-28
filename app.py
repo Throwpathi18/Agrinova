@@ -1,7 +1,7 @@
 import os
 from flask import Flask, render_template, jsonify, request
-from ml.price_predictor import price_predictor
-from ml.crop_recommender import crop_recommender
+from price_predictor import price_predictor
+from crop_recommender import crop_recommender
 from database.models import init_db, get_markets, get_schemes
 import requests
 from math import radians, cos, sin, asin, sqrt
